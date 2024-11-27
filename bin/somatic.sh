@@ -3,7 +3,7 @@
 Thisdir=</Directory for analysis>
 cd "$Thisdir"
 
-# Dependency: java-8, gatk-4.0.11.0
+# Dependency: java-8, gatk-3.8-1-0 and 4.0.11.0, bcftools-1.9
 # For this project chrY is excluded as all individuals are female
 
 REF=</Reference fasta file>
@@ -31,8 +31,12 @@ gatk --java-options "-Xms14g -Xmx16g" Mutect2 \
 --panel-of-normals </panel of normal vcf.gz> \
 -XL chrY
 
-$GATKHOME/gatk --java-options "-Xms14g -Xmx16g" FilterMutectCalls \
+gatk --java-options "-Xms14g -Xmx16g" FilterMutectCalls \
 -R "$REF" \
 -V "$Sample_id".mutect2.vcf.gz \
 -O "$Sample_id".mutect2_filter.vcf.gz \
 -XL chrY
+
+java -jar -Xmx4g GenomeAnalysisTK-3.8-1-0/GenomeAnalysisTK.jar -T VariantsToAllelicPrimitives -R $REF -V "$Sample_id".mutect2_filter.vcf.gz -o "$Thisdir"/"$Sample_id"_temp1.vcf
+bcftools norm --check-ref e --fasta-ref $REF --multiallelics '-both' --output-type v "$Sample_id"_temp1.vcf > "$Thisdir"/"$Sample_id"_mutect2_normalised.vcf
+rm -f "$Thisdir"/"$Sample_id"_temp1.vcf*
