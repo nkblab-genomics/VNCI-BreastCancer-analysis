@@ -1,3 +1,6 @@
+# DNAdragon version 2.7.0 by Arnab Ghosh and Nidhan K Biswas, National institute of Biomedical Genomics
+# The code is designed to run in SGE cluster, change "all.q" in line 245 with appropriate queue name
+# See help by python DNAdragon2.7.0.py --help
 # reading sample sheet
 _req_py_modules = ['os', 'pandas', 'snakemake']
 
