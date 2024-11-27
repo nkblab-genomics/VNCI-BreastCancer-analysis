@@ -1,0 +1,2 @@
+name  pl  fcl  lane  read1  read2
+sample_id  ILLUMINA  FlowCell  Lane  read1.fastq.ga  read2.fastq.gz
