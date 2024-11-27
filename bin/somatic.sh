@@ -9,11 +9,11 @@ cd "$Thisdir"
 REF=</Reference fasta file>
 GenomeADb37=af-only-gnomad.raw.sites.b37.vcf.gz
 
-Sample_id="$1"
-Sample_Normal="$2"
-BAM_Normal="$3"
-Sample_Tumor="$4"
-BAM_Tumor="$5"
+Sample_id=</patient id>
+Sample_Normal=</sample id normal>
+BAM_Normal=</normal bam>
+Sample_Tumor=</sample id tumour>
+BAM_Tumor=</bam tumour>
 
 mkdir -p TMP_DIR
 
@@ -52,4 +52,5 @@ echo -e "chr\tstart\tend\tref_allele\talt_allele" > "$Sample_id"_m2.txt
 cut -f1-5 "$Sample_id"_m2_v0.txt >> "$Sample_id"_m2.txt
 Oncotator -v --db-dir </path for oncotator_v1_ds_April052016> -i MAFLITE -o TCGAMAF --skip-no-alt "$Sample_id"_m2.txt "$Sample_id"_m2.somatic.oncotator.maf hg19
 
-# "$Sample_id".depth.mutect2.tsv and "$Sample_id"_m2.somatic.oncotator.maf can be combined based on chr, start, end, ref_allele and alt_allele for final filtration described in Ghosh et al., manuscript.
+# "$Sample_id".depth.mutect2.tsv and "$Sample_id"_m2.somatic.oncotator.maf can be combined based on chr, start, end, ref_allele and alt_allele
+# for final filtration described in Ghosh et al., manuscript.
