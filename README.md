@@ -16,22 +16,21 @@ one stop Exome and WGS analysis pipeline
   
 optional arguments:
 
-  -h, --help            show this help message and exit
-  
-  --conf CONF           tool config file
-  --info INFO           sample sheet file
-  --resource RESOURCE   refseq, 1000Genome, dbsnp data
-  --workDir WORKDIR     working directory
-  --sgeLogDir SGELOGDIR
-                        sge stdout/stderr dump directory
-  --maxJobPerNode MAXJOBPERNODE
-                        max job to be submitted per compute node
-  --keepAllFiles {T,F}  whether to keep intermediate files (default: F)
-  --dataType {Ex,Wg,Amp}
-                        Specify data type
-  --gvcf {T,F}          GVCF calling (default: F)
-  --fixedSeqLen FIXEDSEQLEN
-                        analysis with fixed sequence length
+                -h, --help            show this help message and exit
+                --conf CONF           tool config file
+                --info INFO           sample sheet file
+                --resource RESOURCE   refseq, 1000Genome, dbsnp data
+                --workDir WORKDIR     working directory
+                --sgeLogDir SGELOGDIR 
+                                      sge stdout/stderr dump directory
+                --maxJobPerNode MAXJOBPERNODE
+                                      max job to be submitted per compute node
+                --keepAllFiles {T,F}  whether to keep intermediate files (default: F)
+                --dataType {Ex,Wg,Amp}
+                                      Specify data type
+                --gvcf {T,F}          GVCF calling (default: F)
+                --fixedSeqLen FIXEDSEQLEN
+                                      analysis with fixed sequence length
+                Ex = Exome, Wg = WGS, Amp = Amplicon sequencing
 
-Ex = Exome, Wg = WGS, Amp = Amplicon sequencing
 
