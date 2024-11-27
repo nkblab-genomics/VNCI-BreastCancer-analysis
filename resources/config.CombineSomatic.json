@@ -1,0 +1,102 @@
+{
+    "reference fasta": "/data1/symec/RESOURCES/refseq/NCBI37_WO_DECOY.fa",
+    "oxog details":
+    {
+        "status": "report no",
+        "foxog cutoff": 0.9,
+        "motif":
+        {
+            "C>A": ["ACA", "ACC", "ACG", "ACT", "CCA", "CCC", "CCG", "CCT", "GCA", "GCC", "GCG", "GCT", "TCA", "TCC", "TCG", "TCT"],
+            "G>T": ["AGA", "AGC", "AGG", "AGT", "CGA", "CGC", "CGG", "CGT", "GGA", "GGC", "GGG", "GGT", "TGA", "TGC", "TGG", "TGT"]
+        }
+    },
+    "default fields": ["#CHROM", "POS", "ID", "REF", "ALT", "FILTER"],
+    "default fields constant":["#CHROM", "POS", "REF", "ALT"],
+    "default fields format":
+    {
+        "#CHROM": ["#CHROM"],
+        "POS": ["POS"],
+        "ID": ["ID"],
+        "REF": ["REF"],
+        "ALT": ["ALT"],
+        "FILTER": ["FILTER"]
+    },
+    "variant callers":
+    {
+        "Mutect2":
+        {
+            "file type": "vcf",
+            "set": "primary",
+            "desired INFO": [],
+            "desired FORMAT": ["AD", "F1R2", "F2R1", "GT", "SB"],
+            "field formats":
+            {
+                "AD": ["ref_depth", "alt_depth"],
+                "SB": ["ref_plus", "ref_minus", "alt_plus", "alt_minus"],
+                "F1R2": ["ref_F1R2", "alt_F1R2"],
+                "F2R1": ["ref_F2R1", "alt_F2R1"],
+                "GT": ["GT"]
+            },
+            "sample name":
+            {
+                "type": "vcf embeded",
+                "normal prefix": "normal_sample",
+                "tumor prefix": "tumor_sample"
+            }
+        },
+        "Strelka2":
+        {
+            "file type": "vcf",
+            "set": "primary",
+            "desired INFO": [],
+            "desired FORMAT": ["DP"],
+            "field formats":
+            {
+                "DP": ["DP"]
+            },
+            "sample name":
+            {
+                "type": "fixed",
+                "normal name": "NORMAL",
+                "tumor name": "TUMOR"
+            }
+        },
+        "MuSE":
+        {
+            "file type": "vcf",
+            "set": "primary",
+            "desired INFO": [],
+            "desired FORMAT": ["GT", "DP", "AD"],
+            "field formats":
+            {
+                "AD": ["ref_depth", "alt_depth"],
+                "DP": ["DP"],
+                "GT": ["GT"]
+            },
+            "sample name":
+            {
+                "type": "ordered",
+                "normal order": 1,
+                "tumor order": 0
+            }
+        },
+        "Varscan2":
+        {
+            "file type": "vcf",
+            "set": "primary",
+            "desired INFO": [],
+            "desired FORMAT": ["DP4"],
+            "field formats":
+            {
+                "DP4": ["ref_plus", "ref_minus", "alt_plus", "alt_minus"]
+            },
+       	    "sample name":
+            {
+             	"type": "fixed",
+                "normal name": "NORMAL",
+                "tumor name": "TUMOR"
+            }
+	}
+
+    }
+}
