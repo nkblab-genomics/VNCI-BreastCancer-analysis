@@ -5,9 +5,13 @@ Dependencies
 2. Requires fastqc, trimmomatic, bwa, qualimap, samtools, picard, GATK versions 3.8-1-0 and >=4.1.4.1 installed
 
 usage: DNAdragon2.7.0.symec2.py [-h] --conf CONF --info INFO --resource
+
                                 RESOURCE --workDir WORKDIR --sgeLogDir
+                                
                                 SGELOGDIR --maxJobPerNode MAXJOBPERNODE
+                                
                                 [--keepAllFiles {T,F}] --dataType {Ex,Wg,Amp}
+                                
                                 [--gvcf {T,F}] [--fixedSeqLen FIXEDSEQLEN]
 
 one stop Exome and WGS analysis pipeline
