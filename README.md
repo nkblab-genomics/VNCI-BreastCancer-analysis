@@ -33,4 +33,7 @@ optional arguments:
                                       analysis with fixed sequence length
                 Ex = Exome, Wg = WGS, Amp = Amplicon sequencing
 
-
+Dependencies for somatic.sh and germline.sh
+1. java-8
+2. GATK==3.8-1-0 and >=4
+3. bcftools==1.9
