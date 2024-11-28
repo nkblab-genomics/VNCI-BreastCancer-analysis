@@ -37,17 +37,10 @@ for(i in samples){
   runss(i)
 }
 
-# combine output of resistant and sensitive groups in "all.resistant.v2.txt", and "all.sensetive.v2.txt".
+# combine output of resistant and sensitive groups in "all.resistant.tsv", and "all.sensetive.tsv".
 # the above files must contain headers: sample, chrom, start, end, oscl_cn2.
 
-resi_data1 = read.table("shattersheek_output/all.resistant.v2.txt", sep = '\t', header = T)
-resi_data = resi_data1 %>% filter(sample == "P011RT") %>% filter(oscl_cn2 < 5)
-snvChr = resi_data$chrom
-snvStart = resi_data$start
-snvEnd = resi_data$end
-snvValues = rep(1,dim(resi_data)[1])
-tracks = tracks + BioCircosCNVTrack('cnv_track', as.character(snvChr), snvStart, snvEnd, snvValues, 
-                           color = "#fcae91", range = c(0,25))
+resi_data1 = read.table("all.resistant.tsv", sep = '\t', header = T)
 mysamples = unique(resi_data1$sample)
 for(i in 2:20){
   resi_data = resi_data1 %>% filter(sample == mysamples[i]) %>% filter(oscl_cn2 < 5)
@@ -59,7 +52,7 @@ for(i in 2:20){
                                       color = "#fcae91", range = c(0,25))
 }
 
-sens_data1 = read.table("shattersheek_output/all.sensetive.v2.txt", sep = '\t', header = T)
+sens_data1 = read.table("all.sensetive.tsv", sep = '\t', header = T)
 mysamples = unique(sens_data1$sample)
 for(i in 1:20){
   sens_data = sens_data1 %>% filter(sample == mysamples[i]) %>% filter(oscl_cn2 < 5)
