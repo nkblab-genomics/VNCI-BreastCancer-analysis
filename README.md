@@ -42,3 +42,5 @@ Dependencies for somatic.sh and germline.sh
 
 Dependencies for other scripts
 1. R==3.5.1 and R>=4
+
+Script specific dependencies are listed as comments
