@@ -37,8 +37,8 @@ Dependencies for somatic.sh and germline.sh
 1. java-8, jdk-17
 2. GATK==3.8-1-0 and >=4
 3. bcftools==1.9
-4. annovar
-5. Oncotator
+4. annovar==latest
+5. Oncotator==1.9.9.0
 
 Dependencies for other scripts
 1. R==3.5.1 and R>=4
