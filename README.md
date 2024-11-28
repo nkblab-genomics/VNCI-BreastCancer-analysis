@@ -39,3 +39,6 @@ Dependencies for somatic.sh and germline.sh
 3. bcftools==1.9
 4. annovar
 5. Oncotator
+
+Dependencies for other scripts
+1. R==3.5.1 and R>=4
