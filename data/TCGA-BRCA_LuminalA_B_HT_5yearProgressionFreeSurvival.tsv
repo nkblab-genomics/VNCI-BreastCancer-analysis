@@ -1,4 +1,4 @@
-ID	Group	Age	stage	PFS_Status	PFS_Months
+ID	Group	Age	stage	PFS_Status_5y	PFS_Months
 TCGA-E9-A1RD	oncogenic	67	2	0	1.117795969
 TCGA-E9-A1R3	oncogenic	70	2	0	2.564355459
 TCGA-AR-A0TR	oncogenic	68	2	1	5.260216326
