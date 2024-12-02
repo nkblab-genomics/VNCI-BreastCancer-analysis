@@ -21,7 +21,8 @@ ggsurvplot(km_fit, data = data,
            legend.title = "Group",
            xlab = "Time (months)", 
            ylab = "5 Year Progression-Free Survival Probability",
-           title = "Kaplan-Meier")
+           title = "Kaplan-Meier",
+           palette = c("blue", "red"))
 
 #Multivariate Cox-PH
 cox_model <- coxph(Surv(PFS_Months, PFS_Status_5y) ~ Group + Age + Stage, data = data)
